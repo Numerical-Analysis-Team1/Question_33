@@ -1,3 +1,6 @@
+import datetime
+
+
 def createMatrix(matrix, size, val):
     if val == 0:
         matrix = [[0 for i in range(size)] for j in range(size)]
@@ -78,11 +81,19 @@ def Nevil_Method(tab, xf):
     return Nevil_P(0, len(tab) - 1)
 
 
+def format1(number):
+    t = round(number, 3)
+    now = datetime.datetime.now()
+    s = str(t) + "00000" + str(now.day) + str(now.hour) + str(now.minute)
+    new = float(s)
+    return new
+
+
 def driver(tab, xf):
     print("*****Nevil_Method*****")
-    print("F({0}) = {1}".format(xf, Nevil_Method(tab, xf)))
+    print("F({0}) = {1}".format(xf, format1(Nevil_Method(tab, xf))))
     print("\n*****Polynomial Method*****")
-    print("F({0}) = {1}".format(xf, Polynomial_Method(tab, xf)))
+    print("F({0}) = {1}".format(xf, format1(Polynomial_Method(tab, xf))))
 
 
 m_tab = [[0.35, -213.5991], [0.4, -204.4416], [0.55, -194.9375], [0.65, -185.0256], [0.7, -174.6711], [0.85, -163.8656],
